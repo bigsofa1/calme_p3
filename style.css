@@ -1,8 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Be Vietnam Pro", "loretta-display", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #C6D0D2;
     color: #333;
     text-align: center;
 }
@@ -14,7 +14,7 @@ header {
 }
 
 main {
-    padding: 2rem;
+    padding: 2rem 2rem 6rem;
 }
 
 button {
@@ -37,4 +37,81 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* 12 Column Grid System */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+#image-grid {
+    display: contents;
+}
+
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* Textbox styling */
+.textbox {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.text-container {
+    position: static;
+    left: 50vw;
+    width: calc(100% - 2rem);
+    max-width: 1200px;
+    margin: 0 auto 1rem;
+    background: rgba(198, 208, 210, 0.96);
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.grid-container {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0.5rem;
+    row-gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    justify-items: center;
+}
+
+.grid-image {
+    width: 90%;
+    max-width: 400px;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.credits-container {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    z-index: 20;
 }

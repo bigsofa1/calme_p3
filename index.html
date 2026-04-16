@@ -4,23 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/fnv1zvx.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>Welcome to My Simple Website</h1>
-    </header>
     <main>
-      <p>
-        This is a basic website with no complexities. You can add your content
-        here.
-      </p>
-      <button id="clickMe">Click Me</button>
-      <p id="message"></p>
+      <div class="text-container">
+        <p style="margin: 0">
+          Dans le cadre de du cours DGX 2022 : Design et changement social, nous
+          nous sommes intéressés à comment les élèves de l'école de design de
+          l'UQAM se sentent, et comment ils gèrent leur stress. Ce projet am
+          service à créer un havre de paix anonyme où les participants pouvaient
+          exprimer comment qu'ils se sentent face à la vie étudiante. Ceci est
+          les résultats de notre interaction avec les étudiants.
+        </p>
+      </div>
+      <div class="grid-container">
+        <div id="image-grid"></div>
+      </div>
     </main>
-    <footer>
-      <p>&copy; 2026 My Simple Site</p>
-    </footer>
-    <script src="script.js"></script>
+    <div class="credits-container">
+      <p>
+        Projet collaboratif par Thomas Chap Vinette, Valentina Vargas & Eva
+        Lambert-Guay. Sous le titulation du professeur Amandine Alessandra dans
+        le cadre du cours DGX 2022 : Design et changement social à l'école de
+        l'UQAM.
+      </p>
+    </div>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
