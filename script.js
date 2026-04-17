@@ -18,10 +18,13 @@ const imageItems = images.map((imageIndex) => {
     },
     React.createElement(motion.img, {
       className: 'grid-image',
-      src: `img/${imageIndex}.jpg`,
+      src: `img/${imageIndex}.png`,
       alt: `Image ${imageIndex}`,
+      drag: true,
+      dragMomentum: false,
       initial: { opacity: 0 },
       whileInView: { opacity: 1 },
+      whileDrag: { scale: 1.02, zIndex: 30 },
       viewport: { once: false, amount: 0.3 },
       transition: { duration: 0.6, ease: 'easeOut' },
     })
