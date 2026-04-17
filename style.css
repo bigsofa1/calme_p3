@@ -32,7 +32,7 @@ main {
 }
 
 .text-container {
-    position: fixed;
+    position: absolute;
     top: 1rem;
     left: 1rem;
     width: min(56rem, calc(100% - 2rem));
