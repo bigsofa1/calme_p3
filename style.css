@@ -10,10 +10,12 @@ body {
     overflow-y: auto;
 }
 
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 1rem;
+.text-container h1 {
+    font-family: "loretta-display", serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    margin: 0;
+    line-height: 0.95;
 }
 
 main {
@@ -33,7 +35,11 @@ main {
     position: fixed;
     top: 1rem;
     left: 1rem;
-    width: min(30rem, calc(100% - 2rem));
+    width: min(56rem, calc(100% - 2rem));
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 1.25rem;
+    align-items: start;
     padding: 1rem;
     box-sizing: border-box;
     text-align: left;
@@ -42,10 +48,14 @@ main {
     line-height: 1.35;
 }
 
+.text-container p {
+    margin: 0;
+}
+
 .grid-container {
     position: absolute;
     inset: 0;
-    padding: 0;
+    padding: 5rem 0 0;
     box-sizing: border-box;
 }
 
@@ -82,7 +92,7 @@ main {
     width: 100%;
     padding: 0.75rem 1rem 1rem;
     text-align: center;
-    z-index: 50;
+    z-index: 20000;
     box-sizing: border-box;
     font-size: 0.8rem;
     line-height: 1.3;
@@ -99,6 +109,8 @@ main {
         width: calc(100% - 1rem);
         top: 0.5rem;
         left: 0.5rem;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
         padding: 0.75rem;
         font-size: 0.75rem;
     }
