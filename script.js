@@ -14,38 +14,74 @@ const shuffle = (items) => {
 };
 
 const randomBetween = (min, max) => Math.random() * (max - min) + min;
+let topZIndex = 200;
+const activeDragZIndex = 10000;
 
 const images = shuffle(Array.from({ length: imageCount }, (_, index) => index + 1));
 
-const imageItems = images.map((imageIndex) => {
-  const left = randomBetween(0, 82).toFixed(2);
-  const top = randomBetween(0, 128).toFixed(2);
-  const rotation = randomBetween(-16, 16).toFixed(2);
-  const offsetX = randomBetween(-0.75, 0.75).toFixed(2);
-  const offsetY = randomBetween(-0.75, 0.75).toFixed(2);
-  const zIndex = Math.floor(randomBetween(8, 26));
+const DraggableImage = ({ imageIndex }) => {
+  const layout = React.useMemo(
+    () => ({
+      left: randomBetween(0, 82).toFixed(2),
+      top: randomBetween(0, 128).toFixed(2),
+      rotation: randomBetween(-16, 16),
+      offsetX: randomBetween(-12, 12),
+      offsetY: randomBetween(-12, 12),
+      baseZIndex: Math.floor(randomBetween(8, 26)),
+    }),
+    []
+  );
+  const [zIndex, setZIndex] = React.useState(
+    layout.baseZIndex
+  );
+
   return React.createElement(
-    'div',
+    motion.div,
     {
       className: 'image-item',
       key: imageIndex,
+      drag: true,
+      dragMomentum: false,
+      initial: {
+        x: layout.offsetX,
+        y: layout.offsetY,
+        rotate: layout.rotation,
+        filter: 'drop-shadow(0 0 0 rgba(0, 0, 0, 0))',
+      },
+      animate: {
+        filter: 'drop-shadow(0 0 0 rgba(0, 0, 0, 0))',
+      },
+      whileDrag: {
+        scale: 1.5,
+        rotate: 0,
+        zIndex: activeDragZIndex,
+        filter: 'drop-shadow(0 16px 30px rgba(0, 0, 0, 0.10))',
+      },
       style: {
-        left: `${left}%`,
-        top: `${top}%`,
-        transform: `translate(${offsetX}rem, ${offsetY}rem) rotate(${rotation}deg)`,
+        left: `${layout.left}%`,
+        top: `${layout.top}%`,
         zIndex,
       },
+      onPointerDown: () => {
+        topZIndex += 1;
+        setZIndex(topZIndex);
+      },
     },
-    React.createElement(motion.img, {
+    React.createElement('img', {
       className: 'grid-image',
       src: `img/${imageIndex}.png`,
       alt: `Image ${imageIndex}`,
-      drag: true,
-      dragMomentum: false,
-      whileDrag: { scale: 1.02, zIndex: 40 },
+      draggable: false,
     })
   );
-});
+};
+
+const imageItems = images.map((imageIndex) =>
+  React.createElement(DraggableImage, {
+    imageIndex,
+    key: imageIndex,
+  })
+);
 
 const root = ReactDOM.createRoot(imageGrid);
 root.render(React.createElement(React.Fragment, null, imageItems));
