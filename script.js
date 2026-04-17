@@ -17,7 +17,7 @@ const shuffle = (items) => {
 const randomBetween = (min, max) => Math.random() * (max - min) + min;
 let topZIndex = 200;
 const activeDragZIndex = 10000;
-const dragScale = isMobileViewport ? 2.5 : 2;
+const dragScale = isMobileViewport ? 2.5 : 1.75;
 const horizontalRange = isMobileViewport
   ? { min: 6, max: 58 }
   : { min: 0, max: 82 };
