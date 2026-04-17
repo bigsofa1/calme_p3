@@ -3,6 +3,7 @@ import ReactDOM from 'https://esm.sh/react-dom/client';
 import { motion } from 'https://esm.sh/framer-motion';
 
 const imageCount = 33;
+const isMobileViewport = window.matchMedia('(max-width: 640px)').matches;
 const imageGrid = document.getElementById('image-grid');
 const shuffle = (items) => {
   const shuffled = [...items];
@@ -16,6 +17,7 @@ const shuffle = (items) => {
 const randomBetween = (min, max) => Math.random() * (max - min) + min;
 let topZIndex = 200;
 const activeDragZIndex = 10000;
+const dragScale = isMobileViewport ? 1.85 : 1.5;
 
 const images = shuffle(Array.from({ length: imageCount }, (_, index) => index + 1));
 
@@ -52,7 +54,7 @@ const DraggableImage = ({ imageIndex }) => {
         filter: 'drop-shadow(0 0 0 rgba(0, 0, 0, 0))',
       },
       whileDrag: {
-        scale: 1.5,
+        scale: dragScale,
         rotate: 0,
         zIndex: activeDragZIndex,
         filter: 'drop-shadow(0 16px 30px rgba(0, 0, 0, 0.10))',
