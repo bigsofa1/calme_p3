@@ -50,6 +50,7 @@ main {
 
 .text-container p {
     margin: 0;
+    max-width: 42rem;
 }
 
 .grid-container {
@@ -104,7 +105,34 @@ main {
     max-width: 60rem;
 }
 
+@media (max-width: 1024px) {
+    main {
+        height: 165vh;
+        padding: 0.75rem;
+    }
+
+    .text-container {
+        width: min(44rem, calc(100% - 1.5rem));
+        gap: 1rem;
+        padding: 0.875rem;
+        font-size: 0.82rem;
+    }
+
+    .grid-container {
+        padding-top: 7rem;
+    }
+
+    .image-item {
+        width: min(24vw, 320px);
+    }
+}
+
 @media (max-width: 640px) {
+    main {
+        height: 190vh;
+        padding: 0.5rem;
+    }
+
     .text-container {
         width: calc(100% - 1rem);
         top: 0.5rem;
@@ -115,8 +143,16 @@ main {
         font-size: 0.75rem;
     }
 
+    .text-container h1 {
+        font-size: clamp(1.6rem, 8vw, 2.5rem);
+    }
+
+    .grid-container {
+        padding-top: 9.5rem;
+    }
+
     .image-item {
-        width: min(28vw, 400px);
+        width: min(34vw, 220px);
     }
 
     .credits-container {
