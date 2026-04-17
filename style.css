@@ -1,3 +1,4 @@
+html,
 body {
     font-family: "Be Vietnam Pro", "loretta-display", sans-serif;
     margin: 0;
@@ -6,6 +7,7 @@ body {
     color: #333;
     text-align: center;
     min-height: 100vh;
+    max-width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -14,7 +16,7 @@ body {
     font-family: "loretta-display", serif;
     font-weight: 400;
     font-size: clamp(1.5rem, 5vw, 3rem);
-    margin: 0;
+    margin: 0 0 0.75rem;
     line-height: 0.95;
 }
 
@@ -23,6 +25,7 @@ main {
     height: 150vh;
     padding: 1rem;
     box-sizing: border-box;
+    overflow-x: clip;
 }
 
 #image-grid {
@@ -58,6 +61,7 @@ main {
     inset: 0;
     padding: 5rem 0 0;
     box-sizing: border-box;
+    overflow-x: clip;
 }
 
 .image-item {

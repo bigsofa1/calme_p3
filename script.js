@@ -17,7 +17,7 @@ const shuffle = (items) => {
 const randomBetween = (min, max) => Math.random() * (max - min) + min;
 let topZIndex = 200;
 const activeDragZIndex = 10000;
-const dragScale = isMobileViewport ? 1.85 : 1.5;
+const dragScale = isMobileViewport ? 2.5 : 1.5;
 
 const images = shuffle(Array.from({ length: imageCount }, (_, index) => index + 1));
 
@@ -48,16 +48,11 @@ const DraggableImage = ({ imageIndex }) => {
         x: layout.offsetX,
         y: layout.offsetY,
         rotate: layout.rotation,
-        filter: 'drop-shadow(0 0 0 rgba(0, 0, 0, 0))',
-      },
-      animate: {
-        filter: 'drop-shadow(0 0 0 rgba(0, 0, 0, 0))',
       },
       whileDrag: {
         scale: dragScale,
         rotate: 0,
         zIndex: activeDragZIndex,
-        filter: 'drop-shadow(0 16px 30px rgba(0, 0, 0, 0.10))',
       },
       style: {
         left: `${layout.left}%`,
