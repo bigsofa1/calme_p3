@@ -12,7 +12,7 @@ const shuffle = (items) => {
     [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
   }
   return shuffled;
-};
+};this
 
 const randomBetween = (min, max) => Math.random() * (max - min) + min;
 let topZIndex = 200;

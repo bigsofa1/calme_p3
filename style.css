@@ -26,8 +26,8 @@ a {
 
 main {
     position: relative;
-    height: 150vh;
-    padding: 1rem 1rem 14rem;
+    min-height: 150vh;
+    padding: 1rem;
     box-sizing: border-box;
     overflow-x: clip;
 }
@@ -62,10 +62,17 @@ main {
 
 .grid-container {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 14rem;
+    left: 0;
     padding: 5rem 0 0;
     box-sizing: border-box;
     overflow-x: clip;
+}
+
+.scroll-spacer {
+    height: 14rem;
 }
 
 .image-item {
@@ -115,8 +122,8 @@ main {
 
 @media (max-width: 1024px) {
     main {
-        height: 165vh;
-        padding: 0.75rem 0.75rem 15rem;
+        min-height: 165vh;
+        padding: 0.75rem;
     }
 
     .text-container {
@@ -127,18 +134,23 @@ main {
     }
 
     .grid-container {
+        bottom: 15rem;
         padding-top: 7rem;
     }
 
     .image-item {
         width: min(24vw, 320px);
     }
+
+    .scroll-spacer {
+        height: 15rem;
+    }
 }
 
 @media (max-width: 640px) {
     main {
-        height: 190vh;
-        padding: 0.5rem 0.5rem 16rem;
+        min-height: 250vh;
+        padding: 0.5rem;
     }
 
     .text-container {
@@ -156,6 +168,7 @@ main {
     }
 
     .grid-container {
+        bottom: 30rem;
         padding-top: 15rem;
     }
 
@@ -169,5 +182,9 @@ main {
         width: auto;
         font-size: 0.68rem;
         padding: 0.5rem 0.75rem 0.75rem;
+    }
+
+    .scroll-spacer {
+        height: 30rem;
     }
 }
