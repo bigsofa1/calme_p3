@@ -12,6 +12,10 @@ body {
     overflow-y: auto;
 }
 
+a {
+    color: inherit;
+}
+
 .text-container h1 {
     font-family: "loretta-display", serif;
     font-weight: 400;
@@ -23,7 +27,7 @@ body {
 main {
     position: relative;
     height: 150vh;
-    padding: 1rem;
+    padding: 1rem 1rem 14rem;
     box-sizing: border-box;
     overflow-x: clip;
 }
@@ -112,7 +116,7 @@ main {
 @media (max-width: 1024px) {
     main {
         height: 165vh;
-        padding: 0.75rem;
+        padding: 0.75rem 0.75rem 15rem;
     }
 
     .text-container {
@@ -134,7 +138,7 @@ main {
 @media (max-width: 640px) {
     main {
         height: 190vh;
-        padding: 0.5rem;
+        padding: 0.5rem 0.5rem 16rem;
     }
 
     .text-container {
@@ -152,7 +156,7 @@ main {
     }
 
     .grid-container {
-        padding-top: 9.5rem;
+        padding-top: 15rem;
     }
 
     .image-item {
@@ -160,7 +164,10 @@ main {
     }
 
     .credits-container {
+        left: 0.5rem;
+        right: 0.5rem;
+        width: auto;
         font-size: 0.68rem;
-        padding: 0.5rem 0.5rem 0.75rem;
+        padding: 0.5rem 0.75rem 0.75rem;
     }
 }

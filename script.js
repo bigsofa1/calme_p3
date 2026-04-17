@@ -17,15 +17,21 @@ const shuffle = (items) => {
 const randomBetween = (min, max) => Math.random() * (max - min) + min;
 let topZIndex = 200;
 const activeDragZIndex = 10000;
-const dragScale = isMobileViewport ? 2.5 : 1.5;
+const dragScale = isMobileViewport ? 2.5 : 2;
+const horizontalRange = isMobileViewport
+  ? { min: 6, max: 58 }
+  : { min: 0, max: 82 };
+const verticalRange = isMobileViewport
+  ? { min: -8, max: 128 }
+  : { min: 0, max: 128 };
 
 const images = shuffle(Array.from({ length: imageCount }, (_, index) => index + 1));
 
 const DraggableImage = ({ imageIndex }) => {
   const layout = React.useMemo(
     () => ({
-      left: randomBetween(0, 82).toFixed(2),
-      top: randomBetween(0, 128).toFixed(2),
+      left: randomBetween(horizontalRange.min, horizontalRange.max).toFixed(2),
+      top: randomBetween(verticalRange.min, verticalRange.max).toFixed(2),
       rotation: randomBetween(-16, 16),
       offsetX: randomBetween(-12, 12),
       offsetY: randomBetween(-12, 12),
