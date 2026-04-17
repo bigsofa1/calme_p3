@@ -4,17 +4,37 @@ import { motion } from 'https://esm.sh/framer-motion';
 
 const imageCount = 33;
 const imageGrid = document.getElementById('image-grid');
-const images = Array.from({ length: imageCount }, (_, index) => index + 1);
+const shuffle = (items) => {
+  const shuffled = [...items];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+  return shuffled;
+};
+
+const randomBetween = (min, max) => Math.random() * (max - min) + min;
+
+const images = shuffle(Array.from({ length: imageCount }, (_, index) => index + 1));
 
 const imageItems = images.map((imageIndex) => {
-  const fromLeft = imageIndex % 2 === 1;
-  const isRightColumn = !fromLeft;
+  const left = randomBetween(0, 82).toFixed(2);
+  const top = randomBetween(0, 128).toFixed(2);
+  const rotation = randomBetween(-16, 16).toFixed(2);
+  const offsetX = randomBetween(-0.75, 0.75).toFixed(2);
+  const offsetY = randomBetween(-0.75, 0.75).toFixed(2);
+  const zIndex = Math.floor(randomBetween(8, 26));
   return React.createElement(
     'div',
     {
-      className: 'col-6',
+      className: 'image-item',
       key: imageIndex,
-      style: isRightColumn ? { marginTop: '10rem' } : undefined,
+      style: {
+        left: `${left}%`,
+        top: `${top}%`,
+        transform: `translate(${offsetX}rem, ${offsetY}rem) rotate(${rotation}deg)`,
+        zIndex,
+      },
     },
     React.createElement(motion.img, {
       className: 'grid-image',
@@ -22,11 +42,7 @@ const imageItems = images.map((imageIndex) => {
       alt: `Image ${imageIndex}`,
       drag: true,
       dragMomentum: false,
-      initial: { opacity: 0 },
-      whileInView: { opacity: 1 },
-      whileDrag: { scale: 1.02, zIndex: 30 },
-      viewport: { once: false, amount: 0.3 },
-      transition: { duration: 0.6, ease: 'easeOut' },
+      whileDrag: { scale: 1.02, zIndex: 40 },
     })
   );
 });
